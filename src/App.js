@@ -27,7 +27,7 @@ function App() {
   }
 
   const [checkStatus, setCheckStatus] = useState(false)
-  const tester = () => {
+  const showDoneOnly = () => {
     setOriginal(workouts)
     setCheckStatus(!checkStatus)
     if (!checkStatus) {
@@ -45,8 +45,10 @@ function App() {
     <div className="App">
       <h1>🏋️‍♀️Workout Generator</h1>
       <button onClick={addNewWorkout}>Add New Workout</button>
-      <label>Checkbox label</label>
-      <input type="checkbox" onChange={() => tester()} />
+      <div>
+      <label>Show done only:</label>
+      <input type="checkbox" onChange={() => showDoneOnly()} />
+      </div>
       <ul>
         {workouts.map((workout, index) => (
           <li key={index}>
